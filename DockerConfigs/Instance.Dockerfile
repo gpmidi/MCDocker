@@ -41,9 +41,8 @@ RUN  mkdir -p /var/lib/minecraft/.ssh/ \
   && cp /usr/share/minecraft/DockerFiles/authorized_keys /var/lib/minecraft/.ssh/authorized_keys \
   && cp -a /usr/share/minecraft/DockerFiles/svcs/* /etc/service/
   && chmod -R 700 /var/lib/minecraft \
-  && chown -R 1000:1000 /var/lib/minecraft \
+  && chown -R 1000:1000 /var/lib/minecraft /etc/service/ \
   && chmod -R 755 /etc/service/ \
-  && chown -R root:root /etc/service/ \
   && echo "Done with making mc .ssh home dir"
   
 #RUN cd /usr/share/minecraft/ \
