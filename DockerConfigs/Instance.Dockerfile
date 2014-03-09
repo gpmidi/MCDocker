@@ -50,7 +50,7 @@ ONBUILD RUN mkdir -p /usr/share/minecraft/servers \
   && chown root:root /usr/share/minecraft/servers \
   && chmod 755 /usr/share/minecraft/servers \
   && wget \
-    -O /usr/share/minecraft/servers/minecraft_server.jar \
+    -O /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
     http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"`
   && echo "Updated server"
   
