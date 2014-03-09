@@ -13,7 +13,7 @@ RUN apt-get install -y \
   build-essential git python python-dev \
   python-setuptools python-pip wget curl libssl-dev \
   openjdk-7-jre-headless rdiff-backup python-openssl \
-  supervisor logrotate cron man 
+  logrotate cron man daemontools-run daemontools
   
 # Stuff to uninstall for real releases
 RUN apt-get install -y \
