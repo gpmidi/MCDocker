@@ -54,11 +54,8 @@ RUN mkdir -p /usr/share/minecraft/servers \
   && chown 1000:1000 /var/lib/minecraft/jars/ \
   && chmod 755 /var/lib/minecraft/jars/ \    
   && echo "Updated server"
-  
-RUN ln -s /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
-  /var/lib/minecraft/minecraft_server.jar
 
 USER mcservers
-EXPOSE 22 9001 25565
-CMD ["supervisord", "--nodaemon", "--logfile=/var/log/supervisor/supervisord.log", "--loglevel=warn", "--logfile_maxbytes=1GB", "--logfile_backups=0"]
+EXPOSE 22 25565
+CMD ["/command/svscanboot"]
 
