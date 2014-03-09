@@ -26,14 +26,13 @@ RUN mkdir -p /var/log/supervisor \
 # TODO: Move wget to ONBUILD
 # Various configs
 ADD ./ /usr/share/minecraft/    
-RUN  cp -a /usr/share/minecraft/supervisord.d/*.conf /etc/supervisor/conf.d/ \
-  && cp -a /usr/share/minecraft/supervisord.conf /etc/supervisor/ \
-  && cp -a /usr/share/minecraft/logrotate.d/*.conf /etc/logrotate.d/ \
-  && cp -a /usr/share/minecraft/scripts/minecraftDocker /etc/init.d/minecraft \
+RUN  cp -a /usr/share/minecraft/DockerFiles/supervisord.d/*.conf /etc/supervisor/conf.d/ \
+  && cp -a /usr/share/minecraft/DockerFiles/supervisord.conf /etc/supervisor/ \
+  && cp -a /usr/share/minecraft/DockerFiles/logrotate.d/*.conf /etc/logrotate.d/ \
   && mkdir -p /var/run/sshd /root/.ssh /var/lib/minecraftBackups \
   && chmod -R 755 /var/run/sshd /etc/init.d/minecraft /etc/supervisor/ \
   && chmod 700 /root/.ssh \
-  && cp -a /usr/share/minecraft/authorized_keys /root/.ssh/authorized_keys \
+  && cp -a /usr/share/minecraft/DockerFiles/authorized_keys /root/.ssh/authorized_keys \
   && chmod -R 755 /var/lib/minecraft/ \
   && chmod 400 /root/.ssh/authorized_keys \
   && chown -R root:root /etc/supervisor/ /root/.ssh/authorized_keys /usr/share/minecraft \
