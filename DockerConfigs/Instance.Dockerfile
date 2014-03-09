@@ -24,6 +24,7 @@ RUN mkdir -p /var/log/supervisor \
   && chown -R root:root /var/log/supervisor
 
 # TODO: Move wget to ONBUILD
+VOLUME ["/var/lib/minecraft","/var/lib/minecraftBackups"]
 # Various configs
 ADD ./ /usr/share/minecraft/    
 RUN  cp -a /usr/share/minecraft/DockerFiles/supervisord.d/*.conf /etc/supervisor/conf.d/ \
@@ -58,6 +59,5 @@ ONBUILD RUN ln -s /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
   /var/lib/minecraft/minecraft_server.jar
 
 EXPOSE 22 9001 25565
-VOLUME ["/var/lib/minecraft","/var/lib/minecraftBackups"]
 CMD ["supervisord", "--nodaemon", "--logfile=/var/log/supervisor/supervisord.log", "--loglevel=warn", "--logfile_maxbytes=1GB", "--logfile_backups=0"]
 
