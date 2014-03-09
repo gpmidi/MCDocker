@@ -49,8 +49,8 @@ RUN  mkdir -p /var/lib/minecraft/.ssh/ \
 #  build-essential openssh-server vim
 
 RUN mkdir -p /usr/share/minecraft/servers \
-  && cd /var/lib/minecraft/jars/ \
-    && wget http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"` \
+  && wget -O /var/lib/minecraft/jars/minecraft_server.1.7.4.jar \
+    http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"` \
   && chown 1000:1000 /var/lib/minecraft/jars/ \
   && chmod 755 /var/lib/minecraft/jars/ \    
   && echo "Updated server"
