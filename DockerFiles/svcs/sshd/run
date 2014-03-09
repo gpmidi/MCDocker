@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Starting SSHd"
+exec /usr/sbin/sshd -D
