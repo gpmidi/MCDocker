@@ -56,8 +56,7 @@ RUN mkdir -p /var/lib/minecraft/jars \
     http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"`
     
 RUN  chown -R 1000:1000 /var/lib/minecraft/ /var/run /etc/ssh \
-  && chmod -R 755 /var/lib/minecraft/ /var/run /etc/ssh \
-  && echo "Updated server"
+  && chmod -R 755 /var/lib/minecraft/ /var/run /etc/ssh
 
 USER mcservers
 EXPOSE 22 25565
