@@ -58,5 +58,5 @@ RUN mkdir -p /var/lib/minecraft/jars \
 
 USER mcservers
 EXPOSE 22 25565
-CMD ["/command/svscanboot"]
+CMD ["/usr/bin/svscanboot"]
 
