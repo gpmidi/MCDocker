@@ -54,8 +54,8 @@ RUN  mkdir -p /var/lib/minecraft/.ssh/ \
 RUN mkdir -p /var/lib/minecraft/jars \
   && wget -O /var/lib/minecraft/jars/minecraft_server.1.7.4.jar \
     http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"` \
-  && chown 1000:1000 /var/lib/minecraft/jars/ \
-  && chmod 755 /var/lib/minecraft/jars/ \    
+  && chown -R 1000:1000 /var/lib/minecraft/ /var/run \
+  && chmod -R 755 /var/lib/minecraft/ /var/run \
   && echo "Updated server"
 
 USER mcservers
