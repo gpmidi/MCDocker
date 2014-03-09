@@ -29,13 +29,13 @@ ADD ./ /usr/share/minecraft/
 RUN  cp -a /usr/share/minecraft/DockerFiles/supervisord.d/*.conf /etc/supervisor/conf.d/ \
   && cp -a /usr/share/minecraft/DockerFiles/supervisord.conf /etc/supervisor/ \
   && cp -a /usr/share/minecraft/DockerFiles/logrotate.d/*.conf /etc/logrotate.d/ \
-  && mkdir -p /var/run/sshd /root/.ssh /var/lib/minecraftBackups \
+  && mkdir -p /var/run/sshd /root/.ssh /var/lib/minecraftBackups /usr/share/minecraft/servers \
   && chmod -R 700 /var/run/sshd /etc/supervisor/ \
   && chmod 700 /root/.ssh \
   && cp -a /usr/share/minecraft/DockerFiles/authorized_keys /root/.ssh/authorized_keys \
-  && chmod -R 755 /var/lib/minecraft/ \
+  && chmod -R 755 /var/lib/minecraft/ /usr/share/minecraft/servers \
   && chmod 400 /root/.ssh/authorized_keys \
-  && chown -R root:root /etc/supervisor/ /root/.ssh/authorized_keys /usr/share/minecraft \
+  && chown -R root:root /etc/supervisor/ /root/.ssh/authorized_keys /usr/share/minecraft /usr/share/minecraft/servers \
   && chown -R 1000.1000 /var/lib/minecraft /var/lib/minecraftBackups \
   && chmod -R 755 /var/lib/minecraft /usr/share/minecraft /var/lib/minecraftBackups \
   && echo "Done with many cmds"
