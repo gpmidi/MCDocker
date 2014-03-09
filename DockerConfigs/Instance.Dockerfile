@@ -29,7 +29,8 @@ RUN mkdir -p /var/log/daemontools \
   && chown -R root:root /var/log/daemontools \
   && echo "Done with making mc dir"
 
-RUN  mkdir -p /var/lib/minecraft/{jars,backups,instances} \
+RUN  mkdir -p /var/lib/minecraft/jars /var/lib/minecraft/backups \
+     /var/lib/minecraft/instances} \
   && chmod -R 700 /var/lib/minecraft \
   && chown -R 1000:1000 /var/lib/minecraft \
   && echo "Done with making mc dir"
