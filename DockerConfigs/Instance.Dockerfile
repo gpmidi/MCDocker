@@ -30,7 +30,7 @@ RUN  cp -a /usr/share/minecraft/DockerFiles/supervisord.d/*.conf /etc/supervisor
   && cp -a /usr/share/minecraft/DockerFiles/supervisord.conf /etc/supervisor/ \
   && cp -a /usr/share/minecraft/DockerFiles/logrotate.d/*.conf /etc/logrotate.d/ \
   && mkdir -p /var/run/sshd /root/.ssh /var/lib/minecraftBackups \
-  && chmod -R 755 /var/run/sshd /etc/init.d/minecraft /etc/supervisor/ \
+  && chmod -R 700 /var/run/sshd /etc/supervisor/ \
   && chmod 700 /root/.ssh \
   && cp -a /usr/share/minecraft/DockerFiles/authorized_keys /root/.ssh/authorized_keys \
   && chmod -R 755 /var/lib/minecraft/ \
