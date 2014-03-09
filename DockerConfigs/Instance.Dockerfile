@@ -51,7 +51,7 @@ RUN  mkdir -p /var/lib/minecraft/.ssh/ \
 #RUN apt-get remove -y \
 #  build-essential openssh-server vim
 
-RUN mkdir -p /var/lib/minecraft/jars \
+RUN  mkdir -p /var/lib/minecraft/jars \
   && wget -O /var/lib/minecraft/jars/minecraft_server.1.7.4.jar \
     http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"`
     
