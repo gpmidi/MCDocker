@@ -25,6 +25,7 @@ RUN mkdir -p /var/log/supervisor \
 
 # TODO: Move wget to ONBUILD
 VOLUME ["/var/lib/minecraft","/var/lib/minecraftBackups"]
+
 # Various configs
 ADD ./ /usr/share/minecraft/    
 RUN  cp -a /usr/share/minecraft/DockerFiles/supervisord.d/*.conf /etc/supervisor/conf.d/ \
@@ -48,11 +49,11 @@ RUN cd /usr/share/minecraft/ \
 #  build-essential openssh-server vim
 
 ONBUILD RUN mkdir -p /usr/share/minecraft/servers \
-  && chown root:root /usr/share/minecraft/servers \
-  && chmod 755 /usr/share/minecraft/servers \
   && wget \
     -O /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
-    http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"`
+    http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"` \
+  && chown root:root /usr/share/minecraft/servers \
+  && chmod 755 /usr/share/minecraft/servers \    
   && echo "Updated server"
   
 ONBUILD RUN ln -s /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
