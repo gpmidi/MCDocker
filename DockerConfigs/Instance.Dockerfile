@@ -24,7 +24,7 @@ RUN mkdir -p /var/log/supervisor \
   && chown -R root:root /var/log/supervisor
 
 # TODO: Move wget to ONBUILD
-VOLUME ["/var/lib/minecraft","/var/lib/minecraftBackups"]
+VOLUME ["/var/lib/minecraft","/var/lib/minecraftBackups","/var/log"]
 
 # Various configs
 ADD ./ /usr/share/minecraft/    
@@ -48,7 +48,7 @@ RUN cd /usr/share/minecraft/ \
 #RUN apt-get remove -y \
 #  build-essential openssh-server vim
 
-ONBUILD RUN mkdir -p /usr/share/minecraft/servers \
+RUN mkdir -p /usr/share/minecraft/servers \
   && wget \
     -O /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
     http://www.minecraft.net/download/minecraft_server.jar?v=`date | sed "s/[^a-zA-Z0-9]/_/g"` \
@@ -56,7 +56,7 @@ ONBUILD RUN mkdir -p /usr/share/minecraft/servers \
   && chmod 755 /usr/share/minecraft/servers \    
   && echo "Updated server"
   
-ONBUILD RUN ln -s /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
+RUN ln -s /usr/share/minecraft/servers/minecraft_server.1.7.4.jar \
   /var/lib/minecraft/minecraft_server.jar
 
 EXPOSE 22 9001 25565
