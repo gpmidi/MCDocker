@@ -43,6 +43,7 @@ RUN  mkdir -p /var/lib/minecraft/.ssh/ \
   && chmod -R 700 /var/lib/minecraft \
   && chown -R 1000:1000 /var/lib/minecraft \
   && chmod -R 755 /etc/service/ \
+  && chown -R root:root /etc/service/ \
   && echo "Done with making mc .ssh home dir"
   
 #RUN cd /usr/share/minecraft/ \
